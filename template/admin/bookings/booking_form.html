@@ -1,0 +1,32 @@
+{% extends "admin/base/base2.html" %}
+{% load static %}
+{% block content %}
+<main id="main" class="main">
+  <section class="section">
+    <div class="col-lg-8 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ view.object.pk|yesno:"Update Booking,Add Booking" }}</h5>
+          <form method="post" class="row g-3">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for field in form %}
+              <div class="col-md-6">
+                <label class="form-label">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                  <div class="text-danger small">{{ field.errors|join:", " }}</div>
+                {% endif %}
+              </div>
+            {% endfor %}
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Save</button>
+              <a href="{% url 'account:booking_list' %}" class="btn btn-secondary">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "admin/base/base2.html" %}
+{% load static %}
+{% block content %}
+<main id="main" class="main">
+
+<section class="section">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title text-center">Room Details</h5>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <strong>Room Number:</strong>
+              <p>{{ room.room_number }}</p>
+            </div>
+            <div class="col-md-6">
+              <strong>Room Type:</strong>
+              <p>{{ room.room_type }}</p>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <strong>Price per Night:</strong>
+              <p>${{ room.price_per_night }}</p>
+            </div>
+            <div class="col-md-6">
+              <strong>Capacity:</strong>
+              <p>{{ room.capacity }} person(s)</p>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <strong>Availability:</strong>
+              {% if room.is_available %}
+                <span class="badge bg-success">Available</span>
+              {% else %}
+                <span class="badge bg-danger">Not Available</span>
+              {% endif %}
+            </div>
+            <div class="col-md-6">
+              <strong>Created At:</strong>
+              <p>{{ room.created_at|date:"d M Y, H:i" }}</p>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <strong>Created By:</strong>
+              <p>{% if room.created_by %}{{room.created_by.email}}{% else %}"N/A"{% endif %}
+              </p>
+            </div>
+            <div class="col-md-6">
+              <strong>Last Updated:</strong>
+              <p>{{ room.updated_at|date:"d M Y, H:i" }}</p>
+            </div>
+          </div>
+
+          <div class="text-end">
+            <a href="{% url 'account:room_update' room.pk %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'account:room_delete' room.pk %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'account:room_list' %}" class="btn btn-secondary">Back to List</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main>
+{% endblock content %}

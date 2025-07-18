@@ -1,0 +1,76 @@
+{% extends "admin/base/base2.html" %}
+{% load static %}
+{% block content %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Room Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'account:home' %}">Home</a></li>
+          <li class="breadcrumb-item">Room-Tables</li>
+          <li class="breadcrumb-item active">Data</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Room List</h5>
+
+          <a href="{% url 'account:room_create' %}" class="btn btn-primary mb-3">Add Room</a>
+
+          <!-- Table with stripped rows -->
+          <table class="table datatable">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Room Number</th>
+                <th scope="col">Room Type</th>
+                <th scope="col">Price/Night</th>
+                <th scope="col">Capacity</th>
+                <th scope="col">Availability</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for room in rooms %}
+              <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ room.room_number }}</td>
+                <td>{{ room.room_type }}</td>
+                <td>${{ room.price_per_night }}</td>
+                <td>{{ room.capacity }}</td>
+                <td>
+                  {% if room.is_available %}
+                    <span class="badge bg-success">Available</span>
+                  {% else %}
+                    <span class="badge bg-danger">Occupied</span>
+                  {% endif %}
+                </td>
+                <td>
+                  <a href="{% url 'account:room_detail' room.pk %}" class="btn btn-sm btn-info">View</a>
+                  <a href="{% url 'account:room_update' room.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                  <a href="{% url 'account:room_delete' room.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+              </tr>
+              {% empty %}
+              <tr>
+                <td colspan="7" class="text-center">No rooms available.</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <!-- End Table with stripped rows -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  </main>
+{% endblock content %}

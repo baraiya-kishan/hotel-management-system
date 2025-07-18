@@ -1,0 +1,39 @@
+{% extends "admin/base/base2.html" %}
+{% load static %}
+{% block content %}
+<main id="main" class="main">
+<section class="section">
+  <div class="col-lg-8 mx-auto">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white text-center">
+        <h4 class="mb-0">Booking Details</h4>
+      </div>
+      <div class="card-body">
+        <p><strong>Guest:</strong> {{ booking.guest.email }}</p>
+        <p><strong>Room:</strong> {{ booking.room.room_number }} ({{ booking.room.room_type }})</p>
+        <p><strong>Check-In:</strong> {{ booking.check_in }}</p>
+        <p><strong>Check-Out:</strong> {{ booking.check_out }}</p>
+        <p><strong>Total Amount:</strong> ${{ booking.total_amount }}</p>
+        <p><strong>Status:</strong> 
+          <span class="badge 
+            {% if booking.payment_status == 'Paid' %}bg-success
+            {% elif booking.payment_status == 'Cancelled' %}bg-danger
+            {% else %}bg-warning
+            {% endif %}">
+            {{ booking.payment_status }}
+          </span>
+        </p>
+         <p class="text-muted">{% if booking.Created_By %}{{booking.created_by.email}}{% else %}"N/A" {% endif %}
+            </p>
+        
+
+        <div class="mt-4 d-flex justify-content-end">
+          <a href="{% url 'account:booking_update' booking.pk %}" class="btn btn-outline-primary me-2">Edit</a>
+          <a href="{% url 'account:booking_list' %}" class="btn btn-secondary">Back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+{% endblock %}

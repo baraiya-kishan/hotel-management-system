@@ -1,0 +1,58 @@
+{% extends "admin/base/base2.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+<main id="main" class="main">
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ view.title }}</h5>
+
+    <!-- Django Room Form with Bootstrap validation -->
+    <form method="post" class="row g-3 needs-validation" novalidate>
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <div class="col-md-6">
+        <label for="id_room_number" class="form-label">Room Number</label>
+        {{ form.room_number|add_class:"form-control" }}
+        <div class="invalid-feedback">Please enter a room number.</div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="id_room_type" class="form-label">Room Type</label>
+        {{ form.room_type|add_class:"form-select" }}
+        <div class="invalid-feedback">Please select a room type.</div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="id_price_per_night" class="form-label">Price per Night</label>
+        {{ form.price_per_night|add_class:"form-control" }}
+        <div class="invalid-feedback">Please enter a valid price.</div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="id_capacity" class="form-label">Capacity</label>
+        {{ form.capacity|add_class:"form-control" }}
+        <div class="invalid-feedback">Please enter capacity.</div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-check">
+          {{ form.is_available }}
+          <label class="form-check-label" for="id_is_available">
+            Is Available
+          </label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Save Room</button>
+      </div>
+    </form><!-- End Form -->
+
+  </div>
+</div>
+
+</main>
+{% endblock content %}
