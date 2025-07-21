@@ -27,62 +27,62 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{% url 'account:components_badges' %}">
               <i class="bi bi-circle"></i><span>Badges</span>
             </a>
           </li>
           <li>
-            <a href="components-breadcrumbs.html">
+            <a href="{% url 'account:components_breadcrumbs' %}">
               <i class="bi bi-circle"></i><span>Breadcrumbs</span>
             </a>
           </li>
           <li>
-            <a href="components-buttons.html">
+            <a href="{% url 'account:components_buttons' %}">
               <i class="bi bi-circle"></i><span>Buttons</span>
             </a>
           </li>
           <li>
-            <a href="components-cards.html">
+            <a href="{% url 'account:components_cards' %}">
               <i class="bi bi-circle"></i><span>Cards</span>
             </a>
           </li>
           <li>
-            <a href="components-carousel.html">
+            <a href="{% url 'account:components_carousel' %}">
               <i class="bi bi-circle"></i><span>Carousel</span>
             </a>
           </li>
           <li>
-            <a href="components-list-group.html">
+            <a href="{% url 'account:components_list_group' %}">
               <i class="bi bi-circle"></i><span>List group</span>
             </a>
           </li>
           <li>
-            <a href="components-modal.html">
+            <a href="{% url 'account:components_modal' %}">
               <i class="bi bi-circle"></i><span>Modal</span>
             </a>
           </li>
           <li>
-            <a href="components-tabs.html">
+            <a href="{% url 'account:components_tabs' %}">
               <i class="bi bi-circle"></i><span>Tabs</span>
             </a>
           </li>
           <li>
-            <a href="components-pagination.html">
+            <a href="{% url 'account:components_pagination' %}">
               <i class="bi bi-circle"></i><span>Pagination</span>
             </a>
           </li>
           <li>
-            <a href="components-progress.html">
+            <a href="{% url 'account:components_progress' %}">
               <i class="bi bi-circle"></i><span>Progress</span>
             </a>
           </li>
           <li>
-            <a href="components-spinners.html">
+            <a href="{% url 'account:components_spinners' %}">
               <i class="bi bi-circle"></i><span>Spinners</span>
             </a>
           </li>
           <li>
-            <a href="components-tooltips.html">
+            <a href="{% url 'account:components_tooltips' %}">
               <i class="bi bi-circle"></i><span>Tooltips</span>
             </a>
           </li>
@@ -123,12 +123,12 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
+            <a href="{% url 'account:tables_general' %}">
               <i class="bi bi-circle"></i><span>General Tables</span>
             </a>
           </li>
           <li>
-            <a href="{% url 'account:tables_general' %}">
+            <a href="{% url 'account:tables_data' %}">
               <i class="bi bi-circle"></i><span>Data Tables</span>
             </a>
           </li>
@@ -141,17 +141,17 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-chartjs.html">
+            <a href="{% url 'account:charts_chartjs' %}">
               <i class="bi bi-circle"></i><span>Chart.js</span>
             </a>
           </li>
           <li>
-            <a href="charts-apexcharts.html">
+            <a href="{% url 'account:charts_apexcharts' %}">
               <i class="bi bi-circle"></i><span>ApexCharts</span>
             </a>
           </li>
           <li>
-            <a href="charts-echarts.html">
+            <a href="{% url 'account:charts_echarts' %}">
               <i class="bi bi-circle"></i><span>ECharts</span>
             </a>
           </li>
@@ -164,17 +164,17 @@
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="icons-bootstrap.html">
+            <a href="{% url 'account:icons_bootstrap' %}">
               <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
             </a>
           </li>
           <li>
-            <a href="icons-remix.html">
+            <a href="{% url 'account:icons_remix' %}">
               <i class="bi bi-circle"></i><span>Remix Icons</span>
             </a>
           </li>
           <li>
-            <a href="icons-boxicons.html">
+            <a href="{% url 'account:icons_boxicons' %}">
               <i class="bi bi-circle"></i><span>Boxicons</span>
             </a>
           </li>
@@ -191,7 +191,7 @@
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="{% url 'account:pages_faq' %}">
           <i class="bi bi-question-circle"></i>
           <span>F.A.Q</span>
         </a>
@@ -226,7 +226,7 @@
       </li><!-- End Error 404 Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
+        <a class="nav-link collapsed" href="{% url 'account:pages_blank' %}">
           <i class="bi bi-file-earmark"></i>
           <span>Blank</span>
         </a>

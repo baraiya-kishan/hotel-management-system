@@ -108,7 +108,7 @@ class FormsValidation(TemplateView):
     template_name=("admin/forms-validation.html")
 
 class IconsBootstrap(TemplateView):
-    template_name=("admim/icons-bootstrap.html")
+    template_name=("admin/icons-bootstrap.html")
 
 class IconsBoxicons(TemplateView):
     template_name=("admin/icons-boxicons.html")
